@@ -30,7 +30,7 @@ class Story extends React.Component {
                 <h1>{this.props.msg.title}</h1>
                 <h2>{this.props.msg.author}</h2>
                 <div
-                dangerouslySetInnerHTML={{__html: this.props.msg.content}} />
+                dangerouslySetInnerHTML={{ __html: this.props.msg.content }} />
                 <Button type="primary" onClick={this.change}>换一篇!!!</Button>
               </Col>
             </Row>
