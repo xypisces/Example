@@ -1,4 +1,10 @@
 {
+    "proxy": {
+          "/repos": {
+            "target": "https://api.github.com",
+            "changeOrigin": true
+          }
+    },
     "extraBabelPlugins": [
         ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
     ]

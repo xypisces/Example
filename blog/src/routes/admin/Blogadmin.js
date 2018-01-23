@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Route, Switch, Link } from 'dva/router';
+import { Route, Switch, Link, Redirect } from 'dva/router';
 import Bloglist from './Bloglist';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import './admin.less';
@@ -12,6 +12,8 @@ class Blogadmin extends React.Component {
     super(props)
     this.state = {
       collapsed: false,
+      name: 'XXXuyuBlog',
+      nickname: 'Blog'
     }
   }
   onCollapse = (collapsed) => {
@@ -26,52 +28,30 @@ class Blogadmin extends React.Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="logo" />
+          <div className="logo" >{this.state.collapsed ? this.state.nickname : this.state.name}</div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
               <Icon type="pie-chart" />
-              <Link to="/admin/bloglist">Home</Link>
+              <Link className="inline" to="/admin/bloglist">BlogList</Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="desktop" />
-              <span>Option 2</span>
-            </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={<span><Icon type="user" /><span>User</span></span>}
-            >
-              <Menu.Item key="3">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={<span><Icon type="team" /><span>Team</span></span>}
-            >
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
+              <span>User</span>
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 500 }}>
+          <Content style={{ margin: '20px 20px 0 20px' }}>
+            <div style={{ padding: 24, background: '#fff', minHeight: 800 }}>
                 <Switch>
                   <Route path="/admin/bloglist" component={Bloglist} />
+                  <Redirect exact from="/admin" to="/admin/bloglist" />
                 </Switch>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2016 Created by Ant UED
+            Ant Blog ©2016 Created by Xu Yu
           </Footer>
         </Layout>
       </Layout>
