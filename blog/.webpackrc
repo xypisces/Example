@@ -3,6 +3,10 @@
           "/repos": {
             "target": "https://api.github.com",
             "changeOrigin": true
+          },
+          "/article": {
+            "target": "https://interface.meiriyiwen.com",
+            "changeOrigin": true
           }
     },
     "extraBabelPlugins": [

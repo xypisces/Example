@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Route, Switch, Link, Redirect } from 'dva/router';
 import Bloglist from './Bloglist';
+import User from './User';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import './admin.less';
 const { Header, Content, Footer, Sider } = Layout;
@@ -12,8 +13,8 @@ class Blogadmin extends React.Component {
     super(props)
     this.state = {
       collapsed: false,
-      name: 'XXXuyuBlog',
-      nickname: 'Blog'
+      name: 'XXXuyuTest',
+      nickname: 'Test'
     }
   }
   onCollapse = (collapsed) => {
@@ -32,11 +33,11 @@ class Blogadmin extends React.Component {
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
               <Icon type="pie-chart" />
-              <Link className="inline" to="/admin/bloglist">BlogList</Link>
+              <Link className="inline" to="/admin/testlist">{this.state.collapsed ? '' : 'TestList'}</Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="desktop" />
-              <span>User</span>
+              <Link className="inline" to="/admin/user">{this.state.collapsed ? '' : 'User Setting'}</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -45,8 +46,9 @@ class Blogadmin extends React.Component {
           <Content style={{ margin: '20px 20px 0 20px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 800 }}>
                 <Switch>
-                  <Route path="/admin/bloglist" component={Bloglist} />
-                  <Redirect exact from="/admin" to="/admin/bloglist" />
+                  <Route path="/admin/testlist" component={Bloglist} />
+                  <Route path="/admin/user" component={User} />
+                  <Redirect exact from="/admin" to="/admin/testlist" />
                 </Switch>
             </div>
           </Content>

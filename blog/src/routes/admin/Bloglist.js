@@ -12,25 +12,6 @@ class Bloglist extends React.Component{
     }
     render() {
         console.log(this.props.issueslist);
-        const data = [{
-            key: '1',
-            firstName: 'John',
-            lastName: 'Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-          }, {
-            key: '2',
-            firstName: 'Jim',
-            lastName: 'Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-          }, {
-            key: '3',
-            firstName: 'Joe',
-            lastName: 'Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-          }];
           const columns = [{
             title: '序号',
             dataIndex: 'number',
@@ -47,7 +28,7 @@ class Bloglist extends React.Component{
             title: '时间',
             dataIndex: 'created_at',
           }, {
-            title: 'Action',
+            title: '操作',
             dataIndex: 'action',
             render: (record,text) => {
                 return(
@@ -65,6 +46,7 @@ class Bloglist extends React.Component{
                     <Button type="primary">Create New</Button>
                 </div>
                 <Table
+                    rowKey = {(record) => { return record.number}}
                     className="list_table"
                     columns={columns}
                     dataSource={this.props.issueslist}
