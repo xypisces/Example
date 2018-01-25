@@ -49,6 +49,7 @@ export default {
         message.error(error);
       }
     },
+    /**获取某天 */
     *getoneDay({ payload }, { call, put }) {
       try {
         const { data } = yield call(example.getoneday, payload);

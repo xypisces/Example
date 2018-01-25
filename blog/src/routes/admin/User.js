@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'dva'
 import { Button, Input } from 'antd';
+import { routerRedux } from 'dva/router'
 import './admin.less'
 const Search = Input.Search;
 

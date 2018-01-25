@@ -9,7 +9,9 @@ function IndexPage() {
       <h1 className={styles.title}>Yay! Welcome to dva!</h1>
       <div className={styles.welcome} />
       <ul className={styles.list}>
-        <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
+        <li>
+          <h2>点击下面链接进入后台</h2>
+        </li>
         <li>
           <Link className="inline" to="/admin">Go to AdminList</Link>
         </li>

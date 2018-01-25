@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Route, Switch, Link, Redirect } from 'dva/router';
-import Bloglist from './Bloglist';
+import Bloglist from './list';
 import User from './User';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import './admin.less';
