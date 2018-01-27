@@ -6,9 +6,35 @@ import './admin.less'
 const Search = Input.Search;
 
 class User extends React.Component {
-
+  constructor(props){
+    super(props)
+    this.state = {
+      time:1,
+    }
+    console.log('constructor')
+  }
   componentWillMount() {
+    console.log('willmount')
+  }
+  componentDidMount() {
     this.props.dispatch({ type: 'example/getRandom', payload:{} })
+    this.setState({
+      time: 2,
+    })
+    console.log('didmount')
+  }
+  componentWillReceiveProps(nextProps){
+    console.log('willrec', nextProps)
+  }
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('shouldcom',nextProps,nextState)
+    return true
+  }
+  componentWillUpdate() {
+    console.log('willupdate')
+  }
+  componentDidUpdate() {
+    console.log('didupdate')
   }
   random = () => {
     this.props.dispatch({ type: 'example/getRandom', payload:{} })
@@ -22,7 +48,7 @@ class User extends React.Component {
   }
   render() {
     const data = this.props.random.data?this.props.random.data:{};
-    console.log(data);
+    console.log('this is render');
     return(
       <div>
         <Button type="primary" onClick={this.random} >随机来一篇</Button>
