@@ -15,6 +15,12 @@ function IndexPage() {
         <li>
           <Link className="inline" to="/admin">Go to AdminList</Link>
         </li>
+        <li>
+          <h2>点击下面链接进入前台</h2>
+        </li>
+        <li>
+          <Link className="inline" to="/home">Go to Home</Link>
+        </li>
       </ul>
     </div>
   );

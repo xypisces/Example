@@ -1,0 +1,77 @@
+:global {
+  .home_content{
+    width: 430px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    .home_div{
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      .home_input{
+        width: 350px;
+      }
+      .home_p{
+        width: 80px;
+      }
+    }
+    .home_btn{
+      margin-top: 20px;
+      align-self: flex-end;
+    }
+  }
+// 评论
+  .comment {
+    margin: 30px auto 30px;
+    width: 430px;
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    min-height: 50px;
+  }
+  
+  .comment .comment-user {
+    flex-shrink: 0;
+  }
+  
+  .comment-username {
+    color: #00a3cf;
+    font-style: italic;
+  }
+  
+  .comment-createdtime {
+    padding-right: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 12px;
+  }
+  
+  .comment:hover .comment-delete {
+    color: #00a3cf;
+  }
+  
+  .comment-delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .comment p {
+    margin: 0;
+    padding-right: 30px;
+  }
+  
+  code {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    padding: 0px 2px;
+  }
+}

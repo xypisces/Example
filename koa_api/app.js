@@ -3,14 +3,18 @@ const Router = require('koa-router')
 const BodyParser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const ObjectId = require('mongodb').ObjectId
+const jwt = require('./jwt')
 
 const app = new koa()
 const router = new Router()
+const securedRouter = new Router()
 
 require('./db/mongo')(app)
 
 app.use(BodyParser())
 app.use(logger())
+// app.use(jwt.errorHandler()).use(jwt.jwt())
+securedRouter.use(jwt.errorHandler()).use(jwt.jwt())
 
 router.get('/', async (ctx)=>{ 
   ctx.body = {
@@ -33,8 +37,26 @@ router.post('/post', async (ctx)=>{
   }
 })
 
+//auth
+router.post('/auth', async(ctx) => {
+  let username = ctx.request.body.username
+  let password = ctx.request.body.password
+  if(username === 'user' && password === 'pwd') {
+    ctx.body = {
+      token: jwt.issue({
+        user: 'user',
+        role: 'admin'
+      })
+    }
+  } else {
+    ctx.status = 401
+    ctx.body = {
+      error: 'Invalid login'
+    }
+  }
+})
 //api
-router.get('/people', async (ctx) => {
+securedRouter.get('/people', async (ctx) => {
   ctx.body = await ctx.app.people.find().toArray()
 })
 
@@ -58,6 +80,7 @@ router.delete("/people/:id", async (ctx) => {
 });
 
 app.use(router.routes()).use(router.allowedMethods())
+app.use(securedRouter.routes()).use(securedRouter.allowedMethods())
 
 app.listen(3333, ()=>{
   console.log('app is start at 3333')
