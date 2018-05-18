@@ -1,3 +1,15 @@
+## Linux 下安装mongodb
+
+- wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.2.3.tgz // 下载安装包
+- tar zxvf mongodb-linux-x86_64-2.2.3.tgz 解压
+- mv mongodb-linux-x86_64-2.2.3 /usr/local/mongodb 移动
+- mkdir -p /data/db  自定义目录
+- sudo mongod --dbpath /data/mongo/ --logpath /data/mongo/mongo.log --logappend --fork --port 27017  //后台启动
+- mongo //看效果
+- ps aux |grep mongodb // 查看进程
+- echo "/usr/local/mongodb/bin/mongod --dbpath=/usr/local/mongodb/data/db --logpath=/usr/local/mongodb/logs/mongodb.log --fork" >> /etc/rc.local // 开机自启动
+
+## 使用mongodb
 mongod  //连接
 
 mongo // 启动
