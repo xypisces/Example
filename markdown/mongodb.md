@@ -9,7 +9,7 @@
 - ps aux |grep mongodb // 查看进程
 - echo "/usr/local/mongodb/bin/mongod --dbpath=/usr/local/mongodb/data/db --logpath=/usr/local/mongodb/logs/mongodb.log --fork" >> /etc/rc.local // 开机自启动
 
-## 使用mongodb
+## 使用mongodb
 mongod  //连接
 
 mongo // 启动
