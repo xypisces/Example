@@ -12,7 +12,7 @@ async function sleep(){
   await page.goto('https://mp.weixin.qq.com/')
   await sleep()
   await page.screenshot({path: 'new.png'})
-  await page.pdf({path: 'a.pdf', format: 'A4'})
+  await page.pdf({path: 'b.pdf', format: 'A4'})
   console.log('success~')
   await browser.close();
 })();
