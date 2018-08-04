@@ -2,7 +2,7 @@ const cp = require('child_process')
 const { resolve } = require('path')
 
 ;(async() => {
-  const script = resolve(__dirname, '../index.js')
+  const script = resolve(__dirname, './douban.js')
   const child = cp.fork(script, [])
   let invoked = false
 
@@ -20,7 +20,7 @@ const { resolve } = require('path')
   })
 
   child.on('message', data => {
-    let result = data.result;
-    console.log(result)
+    // let result = data.result;
+    console.log(data)
   })
 })()
