@@ -3,6 +3,10 @@ const db = 'mongodb://localhost/life-pic'
 
 mongoose.Promise = global.Promise
 
+exports.initSchema = () => {
+  require('./pic')
+}
+
 exports.connect = () => {
   let maxConnect = 0;
   return new Promise((resolve,reject) => {
