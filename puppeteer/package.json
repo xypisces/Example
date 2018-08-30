@@ -12,6 +12,13 @@
   "author": "xuyu",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^1.5.0"
+    "baidu-aip-sdk": "^2.3.3",
+    "koa": "^2.5.2",
+    "mongoose": "^5.2.9",
+    "nanoid": "^1.2.1",
+    "puppeteer": "^1.5.0",
+    "qiniu": "^7.2.1",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
   }
 }
