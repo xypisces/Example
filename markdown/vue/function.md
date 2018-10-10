@@ -124,6 +124,38 @@ this.$GetMenuItemsData({catalogueId: this.$route.query.catalogueId,}).then(()=>{
   this.ActiveItem = this.$store.state.ActiveMenuItem;
 })
 ```
+
+## 获取多语言列表
+## this.$GetLanguagesData
+
+> 同上
+
+```js
+this.$GetLanguagesData().then(()=>{
+    this.languagesData = this.$store.state.languagesData
+  })
+```
+
+## 切换多语言按钮
+## this.$ChangeLanguage(id)
+> 传入对应的语言id即可
+
+```js
+// template
+  <li 
+  v-if='languagesData.list'
+  v-for='(item,idx) in languagesData.list'
+  :key="idx"
+  @click.prevent="changeLanguage(item.languageId)">
+  <a href="#">{{item.name}}</a></li>
+//js
+methods: {
+  changeLanguage(id){
+    this.$ChangeLanguage(id)
+  }
+}
+```
+
 ## 通用方法
 ## this.$GetInitData(key[string],value[string],payload[object])
 - key值为请求的数据字段，详见公用方法
